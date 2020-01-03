@@ -19,10 +19,12 @@ subset <- filter(housepower, DateTime >= as.Date("2007-02-01 00:00:00"), DateTim
 png(filename = "plot3.png", width = 480, height = 480)
 ##Reformat data
 plot3_subset <- reshape2::melt(subset, id.vars = "DateTime", measure.vars = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+plot3_subset <- reshape2::melt(subset, id.vars = "DateTime", measure.vars = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 plot3 <- ggplot(plot3_subset, aes(x = DateTime, y = value, color = variable))+
   geom_line()+
   theme(legend.position = c(.87,.87))+
   theme(legend.title=element_blank())+
   xlab('')+
-  ylab('Energy sub metering')
+  ylab('Energy sub metering')+
+  scale_colour_manual(values = c("black", "red", "blue"))
 dev.off()

@@ -33,7 +33,8 @@ plot3 <- ggplot(plot3_subset, aes(x = DateTime, y = value, color = variable))+
   theme(legend.position = c(.87,.87))+
   theme(legend.title=element_blank())+
   xlab('')+
-  ylab('Energy sub metering')
+  ylab('Energy sub metering')+
+  scale_colour_manual(values = c("black", "red", "blue"))
 dev.off()
 
 ##Create Voltage Plot
